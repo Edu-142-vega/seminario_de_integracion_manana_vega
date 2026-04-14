@@ -28,3 +28,6 @@ n//=2
 print("n//=2",n)
 n**=2
 print("n**=2",n)
+
+
+##OPERADORES DE COMPARACION Y LOGICOS DEBER 
