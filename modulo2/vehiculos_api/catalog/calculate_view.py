@@ -20,7 +20,7 @@ def calcular_area_triangulo(request):
 @api_view(['POST'])
 def promedio_ventas(request):
     try:
-        productos = float(request.data.get('productos'))
+        productos = request.data.get('productos')
         if not productos or not isinstance(productos, list):
             return JsonResponse(
                 {
@@ -31,8 +31,9 @@ def promedio_ventas(request):
         for producto in productos:
             ventas=float(producto.get('ventas', 0))
             total_ventas+=ventas
-
-        promedio=total_ventas/ventas(productos)
+        cantidad_productos=len(productos)
+        promedio=total_ventas/cantidad_productos
+        
 
         return JsonResponse({
             'cantidad_productos':cantidad_productos,
