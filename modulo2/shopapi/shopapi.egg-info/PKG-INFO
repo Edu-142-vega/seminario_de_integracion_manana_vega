@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: shopapi
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.14
+Description-Content-Type: text/markdown
+Requires-Dist: django>=6.0.5
+Requires-Dist: django-cors-headers>=4.9.0
+Requires-Dist: django-filter>=25.2
+Requires-Dist: djangorestframework>=3.17.1
+Requires-Dist: djangorestframework-simplejwt>=5.5.1
+Requires-Dist: pillow>=12.2.0
+Requires-Dist: psycopg2-binary>=2.9.12
+Requires-Dist: python-decouple>=3.8
+
+uv add django djangorestframework djangorestframework-simplejwt django-filter django-cors-headers psycopg2-binary python-decouple

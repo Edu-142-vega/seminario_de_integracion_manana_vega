@@ -1,0 +1,5 @@
+nombre=input("Nombre del sospechoso: ")
+print(f"Registro de {nombre}")
+edad=input("Edad del sospechoso: ")
+edad_entero=int(edad)
+print(f"Edad: {edad_entero}!")
