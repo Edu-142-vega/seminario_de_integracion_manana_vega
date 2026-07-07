@@ -1,18 +1,18 @@
 // src/App.tsx
 
-import WelcomeBanner       from './components/WelcomeBanner'
-/*import UserGreeting        from './components/UserGreeting'
-import CurrentDateDisplay  from './components/CurrentDateDisplay'
-import ColoredBox          from './components/ColoredBox'
-import ConditionalGreeting from './components/ConditionalGreeting'
-import FruitList           from './components/FruitList'
-import PriceTag            from './components/PriceTag'
-import StatusBadge         from './components/StatusBadge'
-import MiniProfileCard     from './components/MiniProfileCard'
-import SimpleInfoTable     from './components/SimpleInfoTable'
-import ProductCard         from './components/ProductCard'
-import ProductCatalogList  from './components/ProductCatalogList'
-import UserProfileCard     from './components/UserProfileCard'*/
+import DigitalCounter from './01useState/DigitalCounter'
+import SafeCounter from './01useState/SafeCounter'
+import TaskManager from './01useState/TaskManager'
+import UserProfileForm from './01useState/UserProfileForm'
+import DocumentTitle from './02useEffect/DocumentTitle'
+import FetchUser from './02useEffect/FetchUser'
+import FetchUsers from './02useEffect/FetchUsers'
+import AutoFocusForm from './03useReff/AutoFocusForm'
+import InlineEditor from './03useReff/InlineEditor'
+import FruitList from './components/FruitList'
+import ProductCard from './components/ProductCard'
+import WelcomeBanner from './components/WelcomeBanner'
+
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.          │
@@ -30,12 +30,13 @@ import UserProfileCard     from './components/UserProfileCard'*/
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO = 1
+const PASO = 41
+
 
 const fruits = [
-  { name: 'Manzana', emoji: '🍎', calories: 52 },
-  { name: 'Banana',  emoji: '🍌', calories: 89 },
-  { name: 'Naranja', emoji: '🍊', calories: 47 },
+  { name: 'Manzana', emoji: '🍎', calories: 52, peso:2 },
+  { name: 'Banana',  emoji: '🍌', calories: 89, peso:3},
+  { name: 'Naranja', emoji: '🍊', calories: 47, peso:4},
 ]
 
 const catalog = [
@@ -47,8 +48,8 @@ const catalog = [
 
 export default function App() {
   const content =
-    PASO ===  1 ? <WelcomeBanner /> :
-   /* PASO ===  2 ? <UserGreeting name="Ana García" occupation="Desarrolladora Frontend" /> :
+    PASO ===  1 ? <WelcomeBanner /> :/*
+    PASO ===  2 ? <UserGreeting name="Ana García" occupation="Desarrolladora Frontend" /> :
     PASO ===  3 ? <CurrentDateDisplay /> :
     PASO ===  4 ? (
       <div style={{ display: 'flex', gap: 12 }}>
@@ -58,7 +59,8 @@ export default function App() {
       </div>
     ) :
     PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Ana" timeOfDay="afternoon" /> :
-    PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
+    */
+    PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> : /*
     PASO ===  7 ? (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
         <PriceTag amount={99.99} currency="USD" />
@@ -92,7 +94,11 @@ export default function App() {
         ]}
       />
     ) :
-    PASO === 11 ? <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
+     */
+    PASO === 11 ? <><WelcomeBanner/>
+    <br/>
+                    <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> 
+                    <ProductCard title="Laptop" description="i9 ultra 2tb" /></>:/*
     PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
     PASO === 13 ? (
       <UserProfileCard
@@ -104,6 +110,18 @@ export default function App() {
         bio="Desarrolladora fullstack con 5 años de experiencia."
       />
     ) :*/
+     //Hoook: useState
+    PASO === 20 ? <DigitalCounter/>:
+    PASO === 21 ? <SafeCounter/>:
+    PASO === 22 ? <UserProfileForm/>:
+    PASO ===  23 ? <TaskManager/>:
+    // Hook: useEffect
+    PASO == 30 ? <DocumentTitle/>:
+    PASO == 31 ? <FetchUser/>:
+    PASO == 32 ? <FetchUsers/>:
+    // Hook: useRef
+    PASO == 40 ? <AutoFocusForm/>:
+    PASO == 41 ? <InlineEditor/>:
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
