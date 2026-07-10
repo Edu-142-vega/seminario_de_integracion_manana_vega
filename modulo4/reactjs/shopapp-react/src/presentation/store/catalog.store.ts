@@ -14,6 +14,7 @@ interface CatalogState {
   error: string | null
   totalCount: number
   currentPage: number
+  activeFilterCount: number
 }
 
 interface CatalogActions {
@@ -38,6 +39,7 @@ export const useCatalogStore = create<CatalogState & CatalogActions>((set, get) 
   error: null,
   totalCount: 0,
   currentPage: 1,
+  activeFilterCount: 0,
 
   async fetchProducts() {
     set({ isLoading: true, error: null })
@@ -65,14 +67,24 @@ export const useCatalogStore = create<CatalogState & CatalogActions>((set, get) 
   },
 
   setFilters(partial) {
-    set((state) => ({
-      filters: { ...state.filters, ...partial },
-      currentPage: 1,
-    }))
+    set((state) => {
+      const newFilters = { ...state.filters, ...partial }
+      // Calculate active filter count
+      let count = 0
+      if (newFilters.search) count++
+      if (newFilters.categoryId) count++
+      if (newFilters.ordering !== 'name') count++
+      
+      return {
+        filters: newFilters,
+        currentPage: 1,
+        activeFilterCount: count,
+      }
+    })
   },
 
   resetFilters() {
-    set({ filters: { ...DEFAULT_FILTERS }, currentPage: 1 })
+    set({ filters: { ...DEFAULT_FILTERS }, currentPage: 1, activeFilterCount: 0 })
   },
 
   setPage(page) {
