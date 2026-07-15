@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy, useEffect } from 'react'
 import { useAuthStore } from '@/presentation/store/auth.store'
 import ProtectedRoute from './ProtectedRoute'
-import PlaceholderPage from '../pages/PlaceholderPage'
+
 import AppShell from '../components/AppShell'
 import AdminOrderDetailPage from '../pages/admin/AdminOrderDetailPage'
 import AdminOrdersPage from '../components/admin/AdminOrdersPage'
+import AdminUsersPage from '../pages/admin/AdminUsersPage'
 
 
 
@@ -138,7 +139,6 @@ export default function AppRouter() {
                             path="/admin/orders"
                             element={
                                 <ProtectedRoute requireStaff>
-                                    <PlaceholderPage title="Admin Órdenes — Módulo 12" />
                                     <AdminOrdersPage />
                                 </ProtectedRoute>
                             }
@@ -157,7 +157,7 @@ export default function AppRouter() {
                             path="/admin/users"
                             element={
                                 <ProtectedRoute requireStaff>
-                                    <PlaceholderPage title="Admin Usuarios — Módulo 13" />
+                                     <AdminUsersPage />
                                 </ProtectedRoute>
                             }
                         />
