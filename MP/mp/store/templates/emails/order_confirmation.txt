@@ -1,0 +1,13 @@
+Notificación de Expediente Policial #{{ order_id }}
+
+Hola Agente/Fiscal {{ username }}, se ha registrado un nuevo informe sobre el expediente.
+
+Evidencias e Informes Registrados:
+{% for item in items %}- {{ item.product_name }}: {{ item.quantity }} unidades/evidencias x Valor/Prioridad {{ item.unit_price }} = Subtotal {{ item.subtotal }}
+{% endfor %}
+Total Procesado: {{ total }}
+Estado del Caso: {{ status }}
+
+Expediente/Informe actualizado el {{ created_at }}.
+---
+Sistema de Gestión de Expedientes Policiales.
